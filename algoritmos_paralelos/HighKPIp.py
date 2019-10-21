@@ -11,7 +11,7 @@ rank = comm.Get_rank()
 size = comm.Get_size()
 
 if rank == 0:
-    csv_reader = pd.read_csv('Data2017Empresa.csv', delimiter=';').drop(['Date', 'Open', 'Low', 'Close'], axis=1)
+    csv_reader = pd.read_csv('../data/Data2017Empresa.csv', delimiter=';').drop(['Date', 'Open', 'Low', 'Close'], axis=1)
     tamaño = len(csv_reader)
     particion = int(tamaño / size)
 
