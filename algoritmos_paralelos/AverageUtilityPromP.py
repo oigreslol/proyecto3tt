@@ -12,6 +12,7 @@ def archivo():
         readCSV = csv.reader(csvfile, delimiter=';')
         openSum = 0
         closeSum = 0
+        var = 4
         opens = []
         close = []
         for row in readCSV:
@@ -31,7 +32,7 @@ def archivo():
             closeSum = closeSum + temp1
             closeSum = closeSum / len(close)
 
-        avrg = closeSum - openSum
+        avrg = closeSum - openSum + var
         print("El promedio de crecimiento en una acción es de: ", avrg)
         print("El tiempo de ejecucion fue de: %s" % (time.time() - start_time))
 
