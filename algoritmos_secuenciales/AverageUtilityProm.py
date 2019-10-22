@@ -2,7 +2,7 @@ import pandas as pd
 import time
 
 start_time = time.time()
-datafile = pd.read_csv('../../data/Data2017EmpresaV2.csv', sep=';', index_col='Date', parse_dates=['Date'])
+datafile = pd.read_csv('../data/Data2017Empresa.csv', sep=';', index_col='Date', parse_dates=['Date'])
 
 openavrg =  datafile["Open"].mean()
 closeavrg = datafile["Close"].mean()

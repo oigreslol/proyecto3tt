@@ -1,34 +1,25 @@
 #!/usr/bin/python
 
+import numpy as np
 import csv
-import njit
+import time
 
-@njit(parallel=True, fastmath=True)
+
+#@njit(parallel=True, fastmath=True)
 def archivo():
-    with open('../data/Data2017EmpresaV2.csv') as csvfile:
+    start_time = time.time()
+    with open('../data/Data2017Empresa.csv') as csvfile:
         readCSV = csv.reader(csvfile, delimiter=';')
         openSum = 0
         closeSum = 0
-        dates = []
         opens = []
-        high = []
-        low = []
         close = []
-        volume = []
         for row in readCSV:
-            date = row[0]
             op = row[1]
-            hig = row[2]
-            lo = row[3]
             clos = row[4]
-            volum = row[5]
 
-            dates.append(date)
             opens.append(op)
-            high.append(hig)
-            low.append(lo)
             close.append(clos)
-            volume.append(volum)        
 
         for x in range(len(opens)-1):
             temp = float(opens[x+1])
@@ -40,6 +31,8 @@ def archivo():
             closeSum = closeSum + temp1
             closeSum = closeSum / len(close)
 
-        print(float(closeSum - openSum))
+        avrg = closeSum - openSum
+        print("El promedio de crecimiento en una acción es de: ", avrg)
+        print("El tiempo de ejecucion fue de: %s" % (time.time() - start_time))
 
 archivo()
