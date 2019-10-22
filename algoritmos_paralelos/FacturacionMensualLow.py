@@ -18,7 +18,7 @@ size = comm.Get_size()
 facturacion = {}
 
 if rank == 0:
-    dataInicial = pd.read_csv('Data2017Empresa.csv', delimiter=';').drop(['Open', 'High', 'Close'], axis=1)
+    dataInicial = pd.read_csv('../data/Data2017Empresa.csv', delimiter=';').drop(['Open', 'High', 'Close'], axis=1)
     dataInicial['Date'] = pd.to_datetime(dataInicial['Date'])
     tamaño = len(dataInicial)
     tamañoMeses = len(fechasIniciales)
